@@ -9,17 +9,18 @@ using namespace std;
 const long double PI = acos(-1.0);
 
 void solve() {
-    int a , b ,c; cin >> a >> b >> c;
-    if(c == 0)
-        cout <<fixed << setprecision(10) << a *1.0/ 2 << " " << b * 1.0 / 2 << endl;
-    else
-        cout << "-1\n";
+    int n; 
+    int cnt = 0;
+
+    while(cin >> n)
+        cnt+= n;
+    cout << cnt << endl;
 }
 
 int main() {
     Bedo
     int tt = 1;
-    cin >> tt;
+    //cin >> tt;
     while(tt--) {
         solve();
     }
