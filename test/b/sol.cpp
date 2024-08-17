@@ -10,7 +10,11 @@ const long double PI = acos(-1.0);
 
 void solve() {
 	int n; cin >> n; 
-	cout << n; 
+	cout << n << endl; 
+	for(int i = 0 ; i <  n ; i ++ ){
+		cout << i << " ";
+	}
+	cout << "\n"; 
 }
 
 int main() {
