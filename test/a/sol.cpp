@@ -9,14 +9,7 @@ using namespace std;
 const long double PI = acos(-1.0);
 
 void solve() {
-    int n , cnt = 0;
-    int x;
-    cin >> n;
-    for(int i = 0; i < n ; i++){
-        cin >> x;
-        cnt += x;
-    }
-    cout << cnt << endl;
+    
 }
 
 int main() {

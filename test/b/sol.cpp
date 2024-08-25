@@ -9,14 +9,17 @@ using namespace std;
 const long double PI = acos(-1.0);
 
 void solve() {
-	int n; cin >> n; 
-	cout << n << endl; 
-	for(int i = 0 ; i <  n ; i ++ ){
-		cout << i << " ";
-	}
-	cout << "\n"; 
+	cout << log(10000)<<endl;
 }
+// target = 10
+// 0 1 2 3  4  5  6  7
+// 1 5 7 |8 10 12 14 16
+// l= 0  r = 7  mid = 7 /2  = 3 
+// 10 ? 
+// l = 3 r = 7 mid  = 5 
+// r = mis = 
 
+// 
 int main() {
 	Bedo
 		int tt = 1;

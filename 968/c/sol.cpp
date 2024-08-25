@@ -9,20 +9,23 @@ using namespace std;
 const long double PI = acos(-1.0);
 
 void solve() {
-    int n , cnt = 0;
-    int x;
-    cin >> n;
-    for(int i = 0; i < n ; i++){
-        cin >> x;
-        cnt += x;
+    int n; cin >> n;
+    string s; cin >> s;
+    vector<int> v(26,0);
+    for(auto c : s)
+        v[(int)(c - 'a')]++;
+    while(n)
+        for(int i = 0 ; i < 26 ; i++)
+            if(v[i])
+                cout << (char)('a' + i) , n -- , v[i]--;
+            
+        cout << endl;         
     }
-    cout << cnt << endl;
-}
 
 int main() {
     Bedo
     int tt = 1;
-    //cin >> tt;
+    cin >> tt;
     while(tt--) {
         solve();
     }
