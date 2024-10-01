@@ -73,6 +73,7 @@ void solve() {
     left(arr , len );
     for(int i = 0 ; i < len ; i++)
         cout << arr[i] << " ";
+    // for algorithem
 }
 
 int main() {
