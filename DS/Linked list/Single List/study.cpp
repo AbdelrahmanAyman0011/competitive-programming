@@ -11,7 +11,8 @@ using namespace std;
 #define no cout << "NO" << endl;
 const long double PI = acos(-1.0);
 
-struct Node {
+struct Node
+{
     int val;
     Node *next;
     Node() : val(0), next(nullptr) {}
@@ -19,7 +20,8 @@ struct Node {
     Node(int x, Node *next) : val(x), next(next) {}
 };
 
-class LinkedList {
+class LinkedList
+{
 private:
     Node *head{};
     Node *tail{};
@@ -27,22 +29,29 @@ private:
     vector<Node *> debug_data; // add/remove nodes you use
 
 public:
-    void print() {
-        for (Node *cur = head; cur; cur = cur->next) {
+    void print()
+    {
+        for (Node *cur = head; cur; cur = cur->next)
+        {
             cout << cur->val << " ";
         }
         cout << endl;
     }
 
-    void add(int n) {
+    void add(int n)
+    {
         Node *node = new Node(n);
         Node *nhead = head;
-        if (nhead == nullptr) {
+        if (nhead == nullptr)
+        {
             head = node;
-        } else {
+        }
+        else
+        {
             Node *prev = head;
             head = head->next;
-            while (head != nullptr) {
+            while (head != nullptr)
+            {
                 head = head->next;
                 prev = prev->next;
             }
@@ -51,22 +60,28 @@ public:
         }
     }
 
-    void insert(int val) {
+    void insert(int val)
+    {
         Node *node = new Node(val);
-        if (head == nullptr) {
+        if (head == nullptr)
+        {
             head = node;
             tail = node;
-        } else {
+        }
+        else
+        {
             tail->next = node;
             tail = node;
         }
         size++;
     }
 
-    int get_nth(int n) {
+    int get_nth(int n)
+    {
         Node *thead = head;
         int cnt = 1;
-        while (thead != nullptr) {
+        while (thead != nullptr)
+        {
             if (cnt++ == n)
                 return thead->val;
             thead = thead->next;
@@ -74,20 +89,26 @@ public:
         return -1;
     }
 
-    int search(int n) {
+    int search(int n)
+    {
         int cnt = 0;
-        for (Node *cur = head; cur; cur = cur->next, cnt++) {
+        for (Node *cur = head; cur; cur = cur->next, cnt++)
+        {
             if (cur->val == n)
                 return cnt;
         }
         return -1;
     }
 
-    void debug_verify_data_integrity() {
-        if (size == 0) {
+    void debug_verify_data_integrity()
+    {
+        if (size == 0)
+        {
             assert(head == nullptr);
             assert(tail == nullptr);
-        } else {
+        }
+        else
+        {
             assert(head != nullptr);
             assert(tail != nullptr);
             if (size == 1)
@@ -103,31 +124,38 @@ public:
         assert(size == (int)debug_data.size());
     }
 
-    void insert_front(int n) {
+    void insert_front(int n)
+    {
         Node *node = new Node(n);
-        if (head == nullptr) {
+        if (head == nullptr)
+        {
             head = node;
             tail = node;
-        } else {
+        }
+        else
+        {
             node->next = head;
             head = node;
         }
         size++;
     }
-
-    void delete_front() {
-        if (head == nullptr) return;
+    void delete_front()
+    {
+        if (head == nullptr)
+            return;
         Node *node = head;
         head = head->next;
         delete node;
         size--;
     }
 
-    int get_nth_back(int n) {
+    int get_nth_back(int n)
+    {
         int nn = size - n + 1;
         Node *node = head;
         int cnt = 1;
-        while (node != nullptr) {
+        while (node != nullptr)
+        {
             if (cnt++ == nn)
                 return node->val;
             node = node->next;
@@ -135,10 +163,12 @@ public:
         return -1;
     }
 
-    bool is_same(const LinkedList &l2h) {
+    bool is_same(const LinkedList &l2h)
+    {
         Node *l1 = head;
         Node *l2 = l2h.head;
-        while (l1 != nullptr && l2 != nullptr) {
+        while (l1 != nullptr && l2 != nullptr)
+        {
             if (l1->val != l2->val)
                 return 0;
             l1 = l1->next;
@@ -151,9 +181,11 @@ public:
             return 0;
     }
 
-    ~LinkedList() {
+    ~LinkedList()
+    {
         Node *current = head;
-        while (current != nullptr) {
+        while (current != nullptr)
+        {
             Node *next = current->next;
             delete current;
             current = next;
@@ -162,8 +194,10 @@ public:
         tail = nullptr;
     }
 
-    void delete_first() {
-        if (head) {
+    void delete_first()
+    {
+        if (head)
+        {
             // Move to next in the list and remove current
             Node *cur = head;
             head = head->next;
@@ -175,49 +209,60 @@ public:
         }
     }
 
-    void delete_nth_node(int n) {
+    void delete_nth_node(int n)
+    {
         if (n < 1 || n > size)
             cout << "Error. No such nth node\n";
         else if (n == 1)
             delete_first();
-        else {
+        else
+        {
             // Connect the node before nth with node after nth
             Node *before_nth = head;
-            for (int i = 1; i < n - 1; ++i) {
+            for (int i = 1; i < n - 1; ++i)
+            {
                 before_nth = before_nth->next;
             }
             Node *nth = before_nth->next;
             before_nth->next = nth->next;
-            if (nth == tail) {
+            if (nth == tail)
+            {
                 tail = before_nth;
             }
             delete_node(nth);
         }
     }
 
-    void delete_node(Node *node) {
+    void delete_node(Node *node)
+    {
         --size;
         delete node;
     }
 };
 
-void print(Node *head) {
-    while (head != nullptr) {
+void print(Node *head)
+{
+    while (head != nullptr)
+    {
         cout << head->val << " ";
         head = head->next;
     }
 }
 
-void printrec(Node *head) {
+void printrec(Node *head)
+{
     if (head == nullptr)
         return;
     printrec(head->next);
     cout << head->val << " ";
 }
 
-void find(Node *head, int num) {
-    while (head != nullptr) {
-        if (head->val == num) {
+void find(Node *head, int num)
+{
+    while (head != nullptr)
+    {
+        if (head->val == num)
+        {
             cout << "i found it";
             return;
         }
@@ -226,7 +271,9 @@ void find(Node *head, int num) {
     cout << "not found ..";
 }
 
-void solve() {
+
+void solve()
+{
     LinkedList l1, l2;
     l1.insert(1);
     l1.insert(2);
@@ -276,10 +323,12 @@ void solve() {
     // find(node1 , 0);
 }
 
-int main() {
+int main()
+{
     Bedo int tt = 1;
     // cin >> tt;
-    while (tt--) {
+    while (tt--)
+    {
         solve();
     }
     return 0;
