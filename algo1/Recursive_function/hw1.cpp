@@ -64,8 +64,8 @@ void solve() {
     // cout <<sol(n) << endl;
     // int v , p; cin  >> v >> p;
     // cout << pow(v , p) << endl;
-    int len = 5;
-    int arr[] = {1,8, 2, 10, 3};
+    int len = 6;
+    int arr[] = {1 , 3 , 5 ,7, 4 , 2};
     // cout << ave(arr , len) << endl;
     // array_increment(arr , len);
     //cout << ave( arr, len);
